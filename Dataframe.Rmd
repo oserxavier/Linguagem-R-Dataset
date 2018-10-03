@@ -1,0 +1,83 @@
+---
+title: "Dataframe"
+author: "Osemar Xavier"
+date: "2 de outubro de 2018"
+output: html_document
+---
+
+### Criando um Data Frame
+```{r}
+d1 <-  data.frame(X = 1: 10, Y = c(51, 54, 61, 67, 68, 75, 77, 75, 80, 82 ))
+d1
+```
+### names -> Nomes das colunas
+```{r}
+names(d1)
+```
+### Class - informa o tipo
+```{r}
+class(d1)
+```
+### Acessando as colunas do dataframe
+```{r}
+d1$X
+d1$Y
+```
+### Plotando os dados do dataframe
+```{r}
+plot(d1)
+```
+plot(d1$X, d1$Y)
+
+### Carregando um arquivo de texto
+```{r}
+ex1 <-  read.table('teste.txt')
+ex1
+```
+### carregando arquivo de texto com cabeçalho
+```{r}
+ex2 <-  read.table('teste2.txt', head  = T)
+ex2
+```
+### ler arquivo no formato csv
+```{r}
+ex3 <-  read.table('teste3.csv', head = T, sep = ";", dec = ",")
+ex3
+```
+### Exibindo classes
+```{r}
+class(ex3)
+class(ex3$salario)
+ex3$salario
+```
+# Exibir os datasets
+```{r}
+data()
+```
+### Carrega pacotes de datasets no R
+```{r}
+ls("package:datasets")
+```
+### View -> Permite visualização  do arquivo ex3 
+```{r}
+View(ex3)
+```
+### Datasets no R
+```{r}
+data("mtcars")
+mtcars
+head(mtcars)
+tail(mtcars)
+fix(mtcars)
+dim(mtcars)
+```
+#### A forma mais direta de se obter um resumo estatístico das variáveis num 'data.frame' é através da função 'summary'
+#### Com a Summary é possível apresentar estatísticas descritivas para as variáveis numéricas.
+```{r}
+summary(mtcars)
+```
+### Plotando um histograma do dataset mtcars
+```{r}
+par(mfrow = c(2, 1))
+hist(mtcars$mpg, main = "Distribution mpg - automatic transmission", xlab = "mpg")
+```
